@@ -9,25 +9,34 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 })
 export class DashComponent {
   /** Based on the screen size, switch from standard to one column per row */
-  cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
+  cardLayout = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(({ matches }) => {
       if (matches) {
-        return [
-          { title: 'Card 1', cols: 1, rows: 1 },
-          { title: 'Card 2', cols: 1, rows: 1 },
-          { title: 'Card 3', cols: 1, rows: 1 },
-          { title: 'Card 4', cols: 1, rows: 1 }
-        ];
+        return {
+          columns: 1,
+          miniCardCols: 1,
+          miniCardRows: 1,
+          chartCols: 1,
+          chartRows: 2,
+          tableCols: 1,
+          talbeRows: 4
+        };
       }
 
-      return [
-        { title: 'Card 1', cols: 2, rows: 1 },
-        { title: 'Card 2', cols: 1, rows: 1 },
-        { title: 'Card 3', cols: 1, rows: 2 },
-        { title: 'Card 4', cols: 1, rows: 1 }
-      ];
+      return {
+        columns: 4,
+        miniCardCols: 1,
+        miniCardRows: 1,
+        chartCols: 2,
+        chartRows: 2,
+        tableCols: 4,
+        talbeRows: 4
+      };
     })
   );
 
-  constructor(private breakpointObserver: BreakpointObserver) { }
+  constructor(private breakpointObserver: BreakpointObserver) {
+
+
+  }
 }
