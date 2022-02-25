@@ -19,7 +19,7 @@ export class DashComponent {
           chartCols: 1,
           chartRows: 2,
           tableCols: 1,
-          talbeRows: 4
+          tableRows: 4
         };
       }
 
@@ -30,7 +30,7 @@ export class DashComponent {
         chartCols: 2,
         chartRows: 2,
         tableCols: 4,
-        talbeRows: 4
+        tableRows: 4
       };
     })
   );

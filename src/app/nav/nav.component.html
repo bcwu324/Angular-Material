@@ -12,7 +12,22 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>material4</span>
+      <button mat-icon-button>
+        <mat-icon>search</mat-icon>
+      </button>
+      <span class="header-spacer"></span>
+      <button mat-icon-button>
+        <mat-icon>notifications</mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon>languages</mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon>person</mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon>logout</mat-icon>
+      </button>
     </mat-toolbar>
     <!-- Add Content Here -->
     <router-outlet></router-outlet>
