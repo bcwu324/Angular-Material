@@ -1,23 +1,23 @@
 <div class="grid-container">
   <!-- <h1 class="mat-h1">Dashboard</h1> -->
-  <mat-grid-list cols="{{ ( cardLayout | async )?.columns }}" rowHeight="200px">
+  <mat-grid-list  class="example-list" cdkDropListOrientation="horizontal" cdkDropList (cdkDropListDropped)="drop($event)"   cols="{{ ( cardLayout | async )?.columns }}" rowHeight="200px">
     <!-- top Cards -->
-    <mat-grid-tile *ngFor="let i of [1, 2, 3, 4]" [colspan]="( cardLayout | async )?.miniCardCols"
-      [rowspan]="( cardLayout | async )?.miniCardRows">
-      <app-card title="Card {{i}}">
+    <mat-grid-tile class="example-box" *ngFor="let miniCard of miniCards" [colspan]="( cardLayout | async )?.miniCardCols"
+      [rowspan]="( cardLayout | async )?.miniCardRows" cdkDrag>
+      <app-card title="{{miniCard | titlecase}}">
         <div>Mini Card Content Here</div>
       </app-card>
     </mat-grid-tile>
     <!-- Charts -->
-    <mat-grid-tile *ngFor="let i of [5, 6]" [colspan]="( cardLayout | async )?.chartCols"
-      [rowspan]="( cardLayout | async )?.chartRows">
-      <app-card title="Card {{i}}">
+    <mat-grid-tile *ngFor="let chart of charts" [colspan]="( cardLayout | async )?.chartCols"
+      [rowspan]="( cardLayout | async )?.chartRows" >
+      <app-card title="{{chart | titlecase}}">
         <div>Chart Content Here</div>
       </app-card>
     </mat-grid-tile>
     <!--Table-->
     <mat-grid-tile [colspan]="( cardLayout | async )?.tableCols" [rowspan]="( cardLayout | async )?.tableRows">
-      <app-card title="Card 9">
+      <app-card title="Map or Table">
         <div>Table Content Here</div>
       </app-card>
     </mat-grid-tile>

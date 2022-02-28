@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
-
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 @Component({
   selector: 'app-dash',
   templateUrl: './dash.component.html',
@@ -34,9 +34,14 @@ export class DashComponent {
       };
     })
   );
+  miniCards=['card1','card2','card3','card4']
+  charts=['chart1','chart2','chart3','chart4']
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.miniCards, event.previousIndex, event.currentIndex);
+  }
+
+
 
   constructor(private breakpointObserver: BreakpointObserver) {
-
-
   }
 }
